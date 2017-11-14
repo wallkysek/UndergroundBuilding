@@ -2,28 +2,45 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Resource : MonoBehaviour, IF_Pickable, IF_Storeable {
+public abstract class Resource : MonoBehaviour, IF_Pickable, IF_Storeable, IF_Harvestable {
+
 
     [SerializeField]
     private string ResourceName;
 
-    private float Amount;
-    private IF_CanPickup Owner;
-    
+    private Mesh nodeMesh;
+    private Mesh pickUpMesh;
+    private float amount;
+    private IF_CanPickup owner;
+    protected MeshFilter meshFilter;
 
+    void Start() {
+        meshFilter = GetComponent<MeshFilter>();
+        this.ChangeMesh();
+    }
 
     public void DropDown() {
-        Owner = null;
+        owner = null;
         //TODO: Create prefab on the ground or something
     }
 
     public void PickUp(IF_CanPickup owner) {
-        Owner = owner;
+        this.owner = owner;
         owner.PickUp(this);
+        gameObject.SetActive(false);
     }
 
     public void Store(IF_CanStore what) {
-        Owner = null;
+        owner = null;
         what.Store(this);
+    }
+
+    public void Harvest(IF_CanHarvest harvester) {
+        harvester.Harvest(this);
+        this.ChangeMesh();
+    }
+
+    public void ChangeMesh() {
+        this.meshFilter.mesh = pickUpMesh;
     }
 }

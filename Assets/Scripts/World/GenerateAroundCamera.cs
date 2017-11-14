@@ -32,7 +32,7 @@ public class GenerateAroundCamera : MonoBehaviour {
             for (int j = -generatingRange-hidingRange + 1; j < generatingRange+hidingRange; j++) {
                 if (CameraPosition.y + j > 0) continue;
                 if (!StaticWorldObjects.WorldBackgroundTiles.ContainsKey(CoordinatePair.Init((int)CameraPosition.x + i, -((int)CameraPosition.y + j)))) {
-                    //Nenalezeno, přidat do seznamu
+                    //Not found, add to the list
                     StaticWorldObjects.WorldBackgroundTiles.Add(CoordinatePair.Init((int)CameraPosition.x + i, -((int)CameraPosition.y + j)),
                         new WorldBackgroundTile(CoordinatePair.Init((int)CameraPosition.x + i, -((int)CameraPosition.y + j))));
                     StaticWorldObjects.WorldStructureTiles.Add(CoordinatePair.Init((int)CameraPosition.x + i, -((int)CameraPosition.y + j)),
@@ -43,12 +43,12 @@ public class GenerateAroundCamera : MonoBehaviour {
                 Vector3 TilePos = StaticWorldObjects.WorldBackgroundTiles[CoordinatePair.Init((int)CameraPosition.x + i, -((int)CameraPosition.y + j))].getPosition();
                 if (Vector2.Distance(new Vector2(CameraPosition.x, CameraPosition.y),
                     new Vector2(TilePos.x, TilePos.y)) > generatingRange) {
-                    //Schovej
+                    //Hide
                     StaticWorldObjects.WorldBackgroundTiles[CoordinatePair.Init((int)CameraPosition.x + i, -((int)CameraPosition.y + j))].HideTile();
                     StaticWorldObjects.WorldStructureTiles[CoordinatePair.Init((int)CameraPosition.x + i, -((int)CameraPosition.y + j))].HideTile();
                     StaticWorldObjects.WorldTiles[CoordinatePair.Init((int)CameraPosition.x + i, -((int)CameraPosition.y + j))].HideTile();
                 } else {
-                    //Zobraz
+                    //Show
                     StaticWorldObjects.WorldBackgroundTiles[CoordinatePair.Init((int)CameraPosition.x + i, -((int)CameraPosition.y + j))].ShowTile();
                     StaticWorldObjects.WorldStructureTiles[CoordinatePair.Init((int)CameraPosition.x + i, -((int)CameraPosition.y + j))].ShowTile();
                     StaticWorldObjects.WorldTiles[CoordinatePair.Init((int)CameraPosition.x + i, -((int)CameraPosition.y + j))].ShowTile();
