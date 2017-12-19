@@ -52,3 +52,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Destroy
+  Button: {fileID: 114926752307669152, guid: 00b2dca6d140bc74ea84a653c5745601, type: 2}
+  icon: {fileID: 21300000, guid: a55cb1f3a4f778e41917ad1e7bcddebd, type: 3}

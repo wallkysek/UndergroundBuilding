@@ -676,6 +676,7 @@ ModelImporter:
     101336: WGT-rig_VIS_upper_arm_ik_pole_L
     101338: WGT-rig_VIS_upper_arm_ik_pole_R
     101340: WGTS_rig
+    101342: Cube
     400000: body
     400002: breast_L
     400004: breast_R
@@ -1347,6 +1348,7 @@ ModelImporter:
     401336: WGT-rig_VIS_upper_arm_ik_pole_L
     401338: WGT-rig_VIS_upper_arm_ik_pole_R
     401340: WGTS_rig
+    401342: Cube
     2100000: None__body
     2300000: WGT-rig_breast_L
     2300002: WGT-rig_breast_R
@@ -1581,6 +1583,8 @@ ModelImporter:
     2300460: WGT-rig_VIS_upper_arm_ik_pole_L
     2300462: WGT-rig_VIS_upper_arm_ik_pole_R
     2300464: WGTS_rig
+    2300466: body
+    2300468: Cube
     3300000: WGT-rig_breast_L
     3300002: WGT-rig_breast_R
     3300004: WGT-rig_brow_B_L
@@ -1814,6 +1818,8 @@ ModelImporter:
     3300460: WGT-rig_VIS_upper_arm_ik_pole_L
     3300462: WGT-rig_VIS_upper_arm_ik_pole_R
     3300464: WGTS_rig
+    3300466: body
+    3300468: Cube
     4300000: WGTS_rig
     4300002: WGT-rig_root
     4300004: WGT-rig_tweak_thumb_03_R_001
@@ -2048,9 +2054,12 @@ ModelImporter:
     4300462: WGT-rig_chest
     4300464: WGT-rig_torso
     4300466: body
+    4300468: Cube
     7400000: Default Take
     7400002: idle
     7400004: walk
+    7400006: rigAction
+    7400008: run
     9500000: //RootNode
     13700000: body
   externalObjects: {}
@@ -2066,20 +2075,109 @@ ModelImporter:
     optimizeGameObjects: 0
     motionNodeName: 
     rigImportErrors: 
-    rigImportWarnings: 
+    rigImportWarnings: "Avatar Rig Configuration mis-match. Bone length in configuration
+      does not match position in animation file:\n\t'DEF-thigh_L' : position error
+      = 133.966415 mm\n\t'DEF-thigh_L_001' : position error = 114.466171 mm\n\t'DEF-shin_L'
+      : position error = 114.466003 mm\n\t'DEF-shin_L_001' : position error = 103.243111
+      mm\n\t'DEF-foot_L' : position error = 103.243118 mm\n\t'DEF-toe_L' : position
+      error = 51.114632 mm\n\t'DEF-thigh_R' : position error = 119.266617 mm\n\t'DEF-thigh_R_001'
+      : position error = 114.466080 mm\n\t'DEF-shin_R' : position error = 114.465927
+      mm\n\t'DEF-shin_R_001' : position error = 103.243019 mm\n\t'DEF-foot_R' : position
+      error = 103.243057 mm\n\t'DEF-toe_R' : position error = 51.114597 mm\nAvatar
+      Rig Configuration mis-match. Inbetween bone rotation in configuration does not
+      match rotation in animation file:\n\t'DEF-shin_L_001' : rotation error = 2.554340
+      deg\n\t'DEF-shin_R_001' : rotation error = 2.522866 deg\n"
     animationImportErrors: 
-    animationImportWarnings: 
+    animationImportWarnings: "\nClip 'walk' has import animation warnings that might
+      lower retargeting quality:\nNote: Activate translation DOF on avatar to improve
+      retargeting quality.\n\t'MCH-spine_002' is inbetween humanoid transforms and
+      has rotation animation that will be discarded.\n\t'MCH-ROT-neck' is inbetween
+      humanoid transforms and has rotation animation that will be discarded.\n\t'MCH-ROT-head'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'head'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'DEF-upper_arm_L_001'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'DEF-forearm_L_001'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'DEF-upper_arm_R_001'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'DEF-forearm_R_001'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'DEF-thigh_L'
+      has translation animation that will be discarded.\n\t'DEF-thigh_L' has scale
+      animation that will be discarded.\n\t'DEF-thigh_L_001' is inbetween humanoid
+      transforms and has rotation animation that will be discarded.\n\t'DEF-shin_L'
+      has scale animation that will be discarded.\n\t'DEF-shin_L_001' is inbetween
+      humanoid transforms and has rotation animation that will be discarded.\n\t'DEF-foot_L'
+      has scale animation that will be discarded.\n\t'DEF-thigh_R' has translation
+      animation that will be discarded.\n\t'DEF-thigh_R' has scale animation that
+      will be discarded.\n\t'DEF-thigh_R_001' is inbetween humanoid transforms and
+      has rotation animation that will be discarded.\n\t'DEF-shin_R' has scale animation
+      that will be discarded.\n\t'DEF-shin_R_001' is inbetween humanoid transforms
+      and has rotation animation that will be discarded.\n\t'DEF-foot_R' has scale
+      animation that will be discarded.\n"
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
-    animationCompression: 3
+    animationCompression: 0
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: idle
+      takeName: idle
+      firstFrame: 0
+      lastFrame: 16
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: walk
+      takeName: walk
+      firstFrame: -1
+      lastFrame: 16
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
@@ -2088,8 +2186,8 @@ ModelImporter:
     addColliders: 0
     importVisibility: 1
     importBlendShapes: 1
-    importCameras: 1
-    importLights: 1
+    importCameras: 0
+    importLights: 0
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1

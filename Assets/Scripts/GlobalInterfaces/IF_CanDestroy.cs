@@ -3,5 +3,5 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public interface IF_CanDestroy {
-    void Destroy();
+    void Destroy(IF_Destroyable target);
 }

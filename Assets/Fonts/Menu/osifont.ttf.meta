@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: eb5d42e3c15919e4b979a8cd7d0d8d3d
+timeCreated: 1511083459
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: osifont
+  fontNames:
+  - osifont
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

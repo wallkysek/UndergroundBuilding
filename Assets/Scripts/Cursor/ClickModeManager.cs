@@ -7,56 +7,72 @@ public class ClickModeManager : MonoBehaviour {
 
     public enum SelectMode { SELECT_ACTOR, SELECT_TARGET};
 
-    [SerializeField]
-    private SelectMode Mode = SelectMode.SELECT_ACTOR;
+    
+    public SelectMode Mode = SelectMode.SELECT_ACTOR;
     [SerializeField]
     private GameObject ParentContent;
     [SerializeField]
     private Button ButtonToInstantiate;
 
-    private IF_Selectable SelectedActor = null;
-    private IF_Selectable SelectedTarget = null;
-    private delegate void SelectedActionDo(object actor, object target);
-    private SelectedActionDo Do;
+    private IF_Actor SelectedActor = null;
+    private IF_Target SelectedTarget = null;
+
+    public delegate void SelectedActionDo(object actor, object target);
+    public SelectedActionDo Do;
+
+    private static ClickModeManager Me;
 
 	// Use this for initialization
 	void Start () {
         this.enabled = false;
+        Me = this;
 	}
+
+    public static ClickModeManager GetInstance() {
+        return Me;
+    }
 
     public void SetUpActions() {
 
     }
 
-    public void ClickedOnGO(IF_Selectable GO) {
+    public void ClickedOnGO(GameObject GO) {
         switch (Mode) {
             case SelectMode.SELECT_ACTOR:
-                SelectedActor = GO;
+                SelectedActor = GO.GetComponent<IF_Actor>();
+                if (this.SelectedActor == null) {
+                    Debug.Log("Not a valid actor");
+                    return;
+                }
                 SetupActionList();
                 break;
             case SelectMode.SELECT_TARGET:
-                this.SelectedTarget = GO;
+                this.SelectedTarget = GO.GetComponent<IF_Target>();
+                if (this.SelectedTarget == null) {
+                    Debug.Log("Not a valid target");
+                    return;
+                }
+                if (this.SelectedActor == null) {
+                    Debug.Log("Not a valid actor");
+                    Mode = SelectMode.SELECT_ACTOR;
+                    return;
+                }
                 Do(SelectedActor, SelectedTarget);
                 Mode = SelectMode.SELECT_ACTOR;
                 break;
         }
     }
     
-    public void SetDelegate() {
-
-    }
 
     private void SetupActionList() {
-        List<Action> actionList = SelectedActor.GetActionList();
+        List<Action> actionList = SelectedActor.GetActions();
 
         foreach (Transform child in ParentContent.transform) {
             GameObject.Destroy(child.gameObject);
         }
 
         foreach (Action act in actionList) {
-            Button btn = Instantiate(ButtonToInstantiate);
-            btn.GetComponentInChildren<Text>().text = act.name;
-            btn.transform.parent = ParentContent.transform;
+            act.GetButton().transform.SetParent(ParentContent.transform);
         }
         
     }

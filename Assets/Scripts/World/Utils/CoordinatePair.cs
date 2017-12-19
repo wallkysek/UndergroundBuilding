@@ -9,6 +9,11 @@
                 pair.Y = y;
                 return pair;
             }
-        }
+        };
+        public enum TileType {
+            TILE_WORLD,
+            TILE_STRUCTURE,
+            TILE_BACKGROUND
+        };
     }
 }

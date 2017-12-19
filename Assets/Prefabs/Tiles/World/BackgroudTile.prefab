@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33338027564332496}
   - component: {fileID: 65304806245129292}
   - component: {fileID: 23874887187500120}
-  - component: {fileID: 114997002009462344}
+  - component: {fileID: 114776378536326702}
   m_Layer: 0
   m_Name: BackgroudTile
   m_TagString: Untagged
@@ -96,7 +96,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114997002009462344
+--- !u!114 &114776378536326702
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -104,6 +104,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 1689659413045082}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05842f1bf65af3e4ea7355787ccd0637, type: 3}
+  m_Script: {fileID: 11500000, guid: 854070ca16673244198dada83bb715f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  layer: 4
+  isActive: 0

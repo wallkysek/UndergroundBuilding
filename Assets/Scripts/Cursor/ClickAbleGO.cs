@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class ClickAbleGO : MonoBehaviour {
 
-    [SerializeField]
     private ClickModeManager ClickManager;
-    [SerializeField]
-    private IF_Selectable Me; 
-    
-    
+    private IF_Selectable Me;
+
+
 
     void Start() {
         Me = this.gameObject.GetComponent<IF_Selectable>();
@@ -17,9 +15,10 @@ public class ClickAbleGO : MonoBehaviour {
             Debug.Log("Missing Selectable script");
             //TODO: Exception
         }
+        this.ClickManager = GameObject.Find("ClickModeManager").GetComponent<ClickModeManager>();
     }
 
-    private void OnMouseUpAsButton() {
-        ClickManager.ClickedOnGO(Me);
+    private void OnMouseDown() { 
+        //ClickManager.ClickedOnGO(Me.GetTarget());
     }
 }

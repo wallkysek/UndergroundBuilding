@@ -8,11 +8,33 @@ public class WorldStartPoint : MonoBehaviour {
     private int X;
     [SerializeField]
     private int Y;
+    [SerializeField]
+    private TileType TileType;
 
     void FixedUpdate() {
-        if (!StaticWorldObjects.WorldTiles.ContainsKey(CoordinatePair.Init(X, Y)))
-            return;
-        StaticWorldObjects.WorldTiles[CoordinatePair.Init(X, Y)].DestroyTile();
-        this.enabled = false;
+        switch (TileType){
+            case TileType.TILE_WORLD:
+                if (!StaticWorldObjects.WorldTiles.ContainsKey(CoordinatePair.Init(X, Y)))
+                    return;
+                StaticWorldObjects.WorldTiles[CoordinatePair.Init(X, Y)].DestroyTile();
+                this.enabled = false;
+                Destroy(this);
+                break;
+            case TileType.TILE_STRUCTURE:
+                if (!StaticWorldObjects.WorldStructureTiles.ContainsKey(CoordinatePair.Init(X, Y)))
+                    return;
+                StaticWorldObjects.WorldStructureTiles[CoordinatePair.Init(X, Y)].DestroyTile();
+                this.enabled = false;
+                Destroy(this);
+                break;
+            default:
+                break;
+        }
+    }
+
+    public void SetStartPoint(int x, int y, TileType tileType) {
+        this.X = x;
+        this.Y = y;
+        this.TileType = tileType;
     }
 }

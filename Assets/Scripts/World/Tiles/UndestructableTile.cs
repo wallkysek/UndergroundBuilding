@@ -25,10 +25,14 @@ public class UndestructableTile : MonoBehaviour
     public void Start()
     {
         this.enabled = false; //no update function needed
-        sminx = minx;
+        /*sminx = minx;
         sminy = miny;
         smaxx = maxx;
-        smaxy = maxy;
+        smaxy = maxy;*/
+        minx = sminx;
+        miny = sminy;
+        maxx = smaxx;
+        maxy = smaxy;
     }
 
     public static int getMinx() {

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Harvest : Action {
-    public override void Do(ref object actor, ref object target) {
+    public override void Do(object actor, object target) {
         if (!(actor is IF_CanHarvest)) {
             //TODO: Exception Invalid Action
         }

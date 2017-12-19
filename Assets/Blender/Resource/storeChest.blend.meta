@@ -1,0 +1,176 @@
+fileFormatVersion: 2
+guid: d005da96dbc6bee42a2337c1a65e2202
+timeCreated: 1511199674
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: BezierCurve
+    100002: Body
+    100004: Chest
+    100006: Head
+    100008: Ladder
+    100010: Lamp
+    100012: Nail_1
+    100014: Nail_2
+    100016: Roomlayout
+    100018: Rope
+    100020: //RootNode
+    100022: Wire
+    400000: BezierCurve
+    400002: Body
+    400004: Chest
+    400006: Head
+    400008: Ladder
+    400010: Lamp
+    400012: Nail_1
+    400014: Nail_2
+    400016: Roomlayout
+    400018: Rope
+    400020: //RootNode
+    400022: Wire
+    2300000: BezierCurve
+    2300002: Body
+    2300004: Head
+    2300006: Ladder
+    2300008: Lamp
+    2300010: Nail_1
+    2300012: Nail_2
+    2300014: Rope
+    2300016: Wire
+    2300018: Chest
+    3300000: BezierCurve
+    3300002: Body
+    3300004: Head
+    3300006: Ladder
+    3300008: Lamp
+    3300010: Nail_1
+    3300012: Nail_2
+    3300014: Rope
+    3300016: Wire
+    3300018: Chest
+    4300000: Wire
+    4300002: Nail_2
+    4300004: Nail_1
+    4300006: Rope
+    4300008: BezierCurve
+    4300010: Ladder
+    4300012: Body
+    4300014: Head
+    4300016: Lamp
+    4300018: Chest
+    7400000: Default Take
+    9500000: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CrystalMetal
+    second: {fileID: 2100000, guid: 5b5aed0555b02f4498bf4fc4d78672bd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material_001
+    second: {fileID: 2100000, guid: a171774c36079484897976afc1953d6d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material_004
+    second: {fileID: 2100000, guid: f1b02cce20fa0c7439227e0ce98764ee, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: chestMetal
+    second: {fileID: 2100000, guid: 9d82ed56f0c135549bfb2d33bebbf6f3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: chestRedWood
+    second: {fileID: 2100000, guid: 72a899ff204b4f64b9e525e1e0e01b71, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: chestWood
+    second: {fileID: 2100000, guid: e8f0bdc55986ad1418f487326512586b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: unnamed
+    second: {fileID: 2100000, guid: c9480e5d01fb46042988209e77cdda94, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
