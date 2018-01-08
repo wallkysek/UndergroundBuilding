@@ -3,38 +3,50 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-[Serializable]
-public abstract class Action : MonoBehaviour {
-    public abstract void Do(object actor, object target);
+namespace Actions
+{
 
-    [SerializeField]
-    private string Name = "Action";
-    [SerializeField]
-    private ActionButton Button;
-    [SerializeField]
-    private Sprite icon;
+    [Serializable]
 
-    protected GameObject Actor;
-    protected GameObject Target;
+    public abstract class Action : MonoBehaviour
+    {
+        public abstract void Do(object actor, object target);
 
-    private void Select() { 
+        [SerializeField]
+        protected string Name = "Action";
+        [SerializeField]
+        private ActionButton Button;
+        [SerializeField]
+        protected Sprite icon;
 
-    }
+        protected GameObject Actor;
+        protected GameObject Target;
 
-    public void Update() {
-        Debug.Log("ewqewq");
-    }
+        private void Select()
+        {
 
-    public ActionButton GetButton() {
-        ActionButton ActButton = Instantiate(Button);
-        if (icon != null) {
-            ActButton.GetComponent<Image>().sprite = icon;
-            ActButton.GetComponentInChildren<Text>().text = "";
-        } else {
-            ActButton.GetComponentInChildren<Text>().text = this.Name;
         }
-        ActButton.SetActionToDo(this);
 
-        return ActButton;
+        /*public void Update() {
+            Debug.Log("ewqewq");
+        }*/
+
+
+        public ActionButton GetButton()
+        {
+            ActionButton ActButton = Instantiate(Button);
+            if (icon != null)
+            {
+                ActButton.GetComponent<Image>().sprite = icon;
+                ActButton.GetComponentInChildren<Text>().text = "";
+            }
+            else
+            {
+                ActButton.GetComponentInChildren<Text>().text = this.Name;
+            }
+            ActButton.SetActionToDo(this);
+
+            return ActButton;
+        }
     }
 }

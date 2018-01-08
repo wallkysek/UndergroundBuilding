@@ -27,13 +27,13 @@ public class CameraMovement : MonoBehaviour {
         Vector3 initialCamPos = this.gameObject.transform.position;
         
         this.MovementVector = new Vector2(0, 0);
-        if (TriggerState.BottomTriggered)
+        if (Input.mousePosition.y <= bottomPadding)
             MovementVector.y = -1 * this.CameraSpeed;
-        if (TriggerState.TopTriggered && this.transform.position.y < 1)
+        if (Input.mousePosition.y >= (Screen.height - topPadding) && this.transform.position.y < 1)
             MovementVector.y = 1 * this.CameraSpeed;
-        if (TriggerState.LeftTriggered)
+        if (Input.mousePosition.x <= leftPadding)
             MovementVector.x = -1 * this.CameraSpeed;
-        if (TriggerState.RightTriggered)
+        if (Input.mousePosition.x >= (Screen.width-rightPadding))
             MovementVector.x = 1 * this.CameraSpeed;
         this.gameObject.transform.position += (new Vector3(MovementVector.x, MovementVector.y, 0) * Time.deltaTime);
         Vector3 finalCamPos = this.gameObject.transform.position;
@@ -45,19 +45,19 @@ public class CameraMovement : MonoBehaviour {
 
         Vector3 centerPos = mCam.ScreenToWorldPoint(new Vector3(mCam.pixelWidth / 2, mCam.pixelHeight / 2, 4));
 
-        if ((rightCameraEdge + rightPadding) > UndestructableTile.getMaxx()) {
-            finalCamPos.x = centerPos.x - Mathf.Abs((rightCameraEdge + rightPadding) - UndestructableTile.getMaxx());
+        if ((rightCameraEdge) > UndestructableTile.getMaxx()) {
+            finalCamPos.x = centerPos.x - Mathf.Abs((rightCameraEdge) - UndestructableTile.getMaxx());
         }
-        if ((leftCameraEdge - leftPadding) < UndestructableTile.getMinx()) {
-            finalCamPos.x = centerPos.x + Mathf.Abs((leftCameraEdge - leftPadding) - UndestructableTile.getMinx());
-        }
-
-        if (-(topCameraEdge + topPadding) < UndestructableTile.getMiny()) {
-            finalCamPos.y = centerPos.y - Mathf.Abs((topCameraEdge + topPadding) - UndestructableTile.getMiny());
+        if ((leftCameraEdge) < UndestructableTile.getMinx()) {
+            finalCamPos.x = centerPos.x + Mathf.Abs((leftCameraEdge) - UndestructableTile.getMinx());
         }
 
-        if (-(bottomCameraEdge - bottomPadding) > UndestructableTile.getMaxy()) {
-            finalCamPos.y = centerPos.y + Mathf.Abs((bottomCameraEdge - bottomPadding) + UndestructableTile.getMaxy());
+        if (-(topCameraEdge) < UndestructableTile.getMiny()) {
+            finalCamPos.y = centerPos.y - Mathf.Abs((topCameraEdge) - UndestructableTile.getMiny());
+        }
+
+        if (-(bottomCameraEdge) > UndestructableTile.getMaxy()) {
+            finalCamPos.y = centerPos.y + Mathf.Abs((bottomCameraEdge) + UndestructableTile.getMaxy());
         }
         this.gameObject.transform.position = finalCamPos;
 

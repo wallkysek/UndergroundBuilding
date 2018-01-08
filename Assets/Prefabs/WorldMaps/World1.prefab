@@ -11,6 +11,22 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1058538233583884}
   m_IsPrefabParent: 1
+--- !u!1 &1006534486469628
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4505756149861784}
+  - component: {fileID: 114939601672959484}
+  m_Layer: 0
+  m_Name: Dwarfmanager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1058538233583884
 GameObject:
   m_ObjectHideFlags: 0
@@ -42,6 +58,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
+--- !u!1 &1280194033800088
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4937568058839724}
+  - component: {fileID: 114504050967652272}
+  m_Layer: 0
+  m_Name: ResourceManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1654221830807922
 GameObject:
   m_ObjectHideFlags: 0
@@ -67,9 +99,10 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4930741233074966}
-  - component: {fileID: 114623444628084360}
+  - component: {fileID: 114069542761644852}
+  - component: {fileID: 114947576256822414}
   m_Layer: 0
-  m_Name: CameraGenerator
+  m_Name: WorldInitialize
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -131,6 +164,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4584994367305714}
+  - {fileID: 4937568058839724}
+  - {fileID: 4505756149861784}
   m_Father: {fileID: 4475046156327402}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -150,6 +185,19 @@ Transform:
   - {fileID: 4182120150973116}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4505756149861784
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1006534486469628}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4182120150973116}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4527431025887324
 Transform:
@@ -190,6 +238,42 @@ Transform:
   m_Father: {fileID: 4475046156327402}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4937568058839724
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1280194033800088}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4182120150973116}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114069542761644852
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1721933866835044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a12145a5969bf05439e3ab539096c342, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WorldTile: {fileID: 1473520245955014, guid: 67693ed4d05929d4aa93c08f88baf4b5, type: 2}
+  StructureTile: {fileID: 1653698250667974, guid: 9e6e4da4a7d75dd42a1ebbbeaf9bada0,
+    type: 2}
+  BackGroundTile: {fileID: 1689659413045082, guid: 70a9da052270eae42bf1fd406d3c52a4,
+    type: 2}
+  goldMaterial: {fileID: 2100000, guid: 985d3aaa043c54249aa51ea61c3c981e, type: 2}
+  resourceDrop: {fileID: 1952801891987316, guid: 076b364a178f2ea46883ed4e69ea08ed,
+    type: 2}
+  PaddingLeft: 5
+  PaddingRight: 5
+  PaddingTop: 5
+  PaddingBottom: 5
 --- !u!114 &114298103180046662
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -202,6 +286,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerCam: {fileID: 0}
+--- !u!114 &114504050967652272
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1280194033800088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2acc7e7e6d2fff048beb64a0c60368f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stone: 0
+  StoneDisplay: {fileID: 0}
+  crystal: 0
+  CrystalDisplay: {fileID: 0}
 --- !u!114 &114615018283009136
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -217,20 +316,6 @@ MonoBehaviour:
   miny: 0
   maxx: 20
   maxy: 40
---- !u!114 &114623444628084360
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1721933866835044}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f08fdf467a890a147a4b5274b86e5981, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  generatingRange: 11
-  hidingRange: 2
-  playerGO: {fileID: 0}
 --- !u!114 &114630048791834788
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -244,7 +329,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sInitWorldTile: {fileID: 1473520245955014, guid: 67693ed4d05929d4aa93c08f88baf4b5,
     type: 2}
-  sInitStructureTile: {fileID: 1051442993633994, guid: 891e610687e3db049a0a906faa16c21b,
+  sInitStructureTile: {fileID: 1653698250667974, guid: 9e6e4da4a7d75dd42a1ebbbeaf9bada0,
     type: 2}
   sInitBackgroundTile: {fileID: 1689659413045082, guid: 70a9da052270eae42bf1fd406d3c52a4,
     type: 2}
@@ -261,8 +346,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Mode: 0
   ParentContent: {fileID: 0}
+  MenuParentContent: {fileID: 0}
   ButtonToInstantiate: {fileID: 114926752307669152, guid: 00b2dca6d140bc74ea84a653c5745601,
     type: 2}
+  MenuParentBackground: {fileID: 0}
+  dwarfPanel: {fileID: 0}
+  msgPanel: {fileID: 0}
 --- !u!114 &114898136068846570
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -276,11 +365,42 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildings:
   - building: {fileID: 1743081972760560, guid: d485a50634dc42f46aeb4881fbc550f9, type: 2}
-    positionX: 1
+    positionX: -1
     positionY: 3
   rooms:
-  - positionX: 0
+  - positionX: -1
+    positionY: 3
+    sizeX: 3
+    sizeY: 3
+  - positionX: 5
     positionY: 3
     sizeX: 5
-    sizeY: 2
-  tunnels: []
+    sizeY: 3
+  tunnels:
+  - positionX: 0
+    positionY: 3
+    size: 5
+    horizontalOrientation: 1
+    positiveOrientation: 1
+--- !u!114 &114939601672959484
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1006534486469628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fea270f17fcf95b42af6c5cbde2ebc56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114947576256822414
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1721933866835044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c390bf180e1dd004a965b23175eed53e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

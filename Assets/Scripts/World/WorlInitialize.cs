@@ -15,6 +15,8 @@ public class WorlInitialize : MonoBehaviour {
     private GameObject BackGroundTile;
     [SerializeField]
     private Material goldMaterial;
+    [SerializeField] 
+    private GameObject resourceDrop;
 
     [SerializeField]
     private int PaddingLeft = 5;
@@ -37,33 +39,41 @@ public class WorlInitialize : MonoBehaviour {
         int sizeX = Mathf.Abs(minX) + Mathf.Abs(maxX)+1;
         int sizeY = Mathf.Abs(minY) + Mathf.Abs(maxY)+1;
 
-        int[,] noise = generator.GenerateNoise(sizeX,sizeY,0f,0f,0.001f,0.8f);
+        int[,] goldenNoise = generator.GenerateNoise(sizeX,sizeY,0f,0f,0.001f,0.8f);
+        int[,] tunnelNoise = generator.GenerateNoise(sizeX, sizeY, 1f, 1f, 0.08f, 0.7f);
         for(int i = minX; i < maxX; i++) {
             for(int j = minY; j < maxY; j++) {
-                GameObject Instantiated = Instantiate(WorldTile);
-                if (noise[i + Mathf.Abs(minX), j + Mathf.Abs(minY)] == 1) {
-                    Renderer rendererInstantiated = Instantiated.GetComponent<Renderer>();
-                    rendererInstantiated.material = goldMaterial;
-                }
+                    GameObject Instantiated = Instantiate(WorldTile);
+                    if (goldenNoise[i + Mathf.Abs(minX), j + Mathf.Abs(minY)] == 1) {
+                        Renderer rendererInstantiated = Instantiated.GetComponent<Renderer>();
+                        rendererInstantiated.material = goldMaterial;
+                        Instantiated.GetComponent<WorldTile>().setResource(resourceDrop);
+                    }
+                
 
-                Tile inTile = Instantiated.GetComponent<WorldTile>();
-                if (inTile != null) {
-                    inTile.InitiateTile(CoordinatePair.Init(i, j));
-                    StaticWorldObjects.WorldTiles.Add(CoordinatePair.Init(i, j), (WorldTile)inTile);
+
+                    Tile inTile = Instantiated.GetComponent<WorldTile>();
+
+                if (tunnelNoise[i + Mathf.Abs(minX), j + Mathf.Abs(minY)] == 0) {
+                    if (inTile != null) {
+                        inTile.InitiateTile(CoordinatePair.Init(i, j));
+                        StaticWorldObjects.WorldTiles.Add(CoordinatePair.Init(i, j), (WorldTile)inTile);
+                    }
                 }
-                Instantiated = Instantiate(StructureTile);
-                inTile = Instantiated.GetComponent<StructureTile>();
-                if (inTile != null) {
-                    inTile.InitiateTile(CoordinatePair.Init(i, j));
-                    StaticWorldObjects.WorldStructureTiles.Add(CoordinatePair.Init(i, j), (StructureTile)inTile);
+                    Instantiated = Instantiate(StructureTile);
+                    inTile = Instantiated.GetComponent<StructureTile>();
+                    if (inTile != null) {
+                        inTile.InitiateTile(CoordinatePair.Init(i, j));
+                        StaticWorldObjects.WorldStructureTiles.Add(CoordinatePair.Init(i, j), (StructureTile)inTile);
+                    }
+                    Instantiated = Instantiate(BackGroundTile);
+                    inTile = Instantiated.GetComponent<WorldBackgroundTile>();
+                    if (inTile != null) {
+                        inTile.InitiateTile(CoordinatePair.Init(i, j));
+                        StaticWorldObjects.WorldBackgroundTiles.Add(CoordinatePair.Init(i, j), (WorldBackgroundTile)inTile);
+                    }
                 }
-                Instantiated = Instantiate(BackGroundTile);
-                inTile = Instantiated.GetComponent<WorldBackgroundTile>();
-                if (inTile != null) {
-                    inTile.InitiateTile(CoordinatePair.Init(i, j));
-                    StaticWorldObjects.WorldBackgroundTiles.Add(CoordinatePair.Init(i, j), (WorldBackgroundTile)inTile);
-                }
-            }
+            
         }
 
         this.enabled = false;

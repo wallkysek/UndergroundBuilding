@@ -10,8 +10,10 @@ public class CameraTrigger : MonoBehaviour {
     private TriggerPosition TrigPos;
     [SerializeField]
     private float TrigSize;
-
+    private bool mouseIn = false;
     private Camera PlayerCam;
+    [SerializeField]
+    private CameraMainController cmc;
 
     void Start() {
         PlayerCam = gameObject.transform.root.GetComponent<Camera>();
@@ -43,10 +45,32 @@ public class CameraTrigger : MonoBehaviour {
         this.gameObject.transform.position = WorldPos;
     }
     void Update() {
+        if (!cmc.mouseIn) {
+            if (Input.GetKey("up") || Input.GetKey("w"))
+                TriggerState.TopTriggered = true;
+            else
+                TriggerState.TopTriggered = false;
+
+            if (Input.GetKey("down") || Input.GetKey("s"))
+                TriggerState.BottomTriggered = true;
+            else
+                TriggerState.BottomTriggered = false;
+
+            if (Input.GetKey("left") || Input.GetKey("a"))
+                TriggerState.LeftTriggered = true;
+            else
+                TriggerState.LeftTriggered = false;
+
+            if (Input.GetKey("right") || Input.GetKey("d"))
+                TriggerState.RightTriggered = true;
+            else
+                TriggerState.RightTriggered = false;
+        }
 
     }
 
     void OnMouseEnter() {
+        cmc.mouseIn = true;
         switch (TrigPos) {
             case TriggerPosition.LEFT:
                 TriggerState.LeftTriggered = true;
@@ -63,6 +87,7 @@ public class CameraTrigger : MonoBehaviour {
         }
     }
     void OnMouseExit() {
+        cmc.mouseIn = false;
         switch (TrigPos) {
             case TriggerPosition.LEFT:
                 TriggerState.LeftTriggered = false;

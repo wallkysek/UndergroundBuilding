@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using System.Collections.Generic;
+using UnityEngine.AI;
 
 namespace World {
     namespace WorldTiles {
@@ -9,11 +10,11 @@ namespace World {
             [SerializeField]
             private GameObject resource;
 
+
             public void Destroy() {
-                Debug.Log("pridan kamen");
                 resource = Instantiate(resource);
                 resource.transform.position = gameObject.transform.position;
-                GameObject.Destroy(gameObject);
+                base.DestroyTile();
             }
 
             public Vector3 GetTargetPosition() {
@@ -21,21 +22,19 @@ namespace World {
             }
 
             public void OnPointerDown(PointerEventData eventData) {
+                
                 ClickModeManager.GetInstance().ClickedOnGO(this.gameObject);
+                Debug.Log("Clicked on Tile");
             }
 
             override protected GameObject getTileForInstantiate() {
                 return StaticWorldObjects.getInitWorldTile();
             }
 
-
-            /*void OnMouseDown() {
-                if (!EventSystem.current.IsPointerOverGameObject())
-                    if (EventSystem.current.currentSelectedGameObject != null) {
-                        Debug.Log(EventSystem.current.currentSelectedGameObject.name);
-                    }
-                    ClickModeManager.GetInstance().ClickedOnGO(this.gameObject);
-            }*/
+            public void setResource(GameObject resource)
+            {
+                this.resource = resource;
+            }
         }
     }
 }

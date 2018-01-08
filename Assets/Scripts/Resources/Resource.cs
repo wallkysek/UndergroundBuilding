@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public abstract class Resource : MonoBehaviour, IF_Pickable, IF_Storeable {
+public abstract class Resource : MonoBehaviour, IF_Pickable, IF_Storeable, IF_Harvestable, IF_Target, IPointerDownHandler {
 
 
     [SerializeField]
@@ -29,7 +30,20 @@ public abstract class Resource : MonoBehaviour, IF_Pickable, IF_Storeable {
         owner = null;
         what.Store(this);
     }
-    
 
-    
+
+    virtual public void Harvest()
+    {
+        
+    }
+
+    public Vector3 GetTargetPosition()
+    {
+        return this.gameObject.transform.position;
+    }
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        ClickModeManager.GetInstance().ClickedOnGO(this.gameObject);
+    }
 }

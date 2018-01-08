@@ -2,5 +2,5 @@
 using System;
 
 public interface IF_Actor {
-    List<Action> GetActions();
+    List<Actions.Action> GetActions();
 }

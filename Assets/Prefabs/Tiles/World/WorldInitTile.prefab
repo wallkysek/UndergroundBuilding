@@ -54,10 +54,9 @@ GameObject:
   - component: {fileID: 23338730839376326}
   - component: {fileID: 114120396323096558}
   - component: {fileID: 65994281726385240}
-  - component: {fileID: 114619341055418604}
   m_Layer: 0
   m_Name: WorldInitTile
-  m_TagString: Untagged
+  m_TagString: WalkableTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -96,7 +95,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1473520245955014}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.1417694, y: 3.4954767, z: -14.638366}
+  m_LocalPosition: {x: 16.130966, y: 8.263636, z: -30.19162}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4546822781720870}
@@ -182,15 +181,3 @@ MonoBehaviour:
   layer: 0
   isActive: 0
   resource: {fileID: 1109559189753242, guid: 138434b9bc14d13428b09953513019e5, type: 2}
---- !u!114 &114619341055418604
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1473520245955014}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4cd0e02bad098340b08ff8b3c67dc9c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ResourceName: Stone

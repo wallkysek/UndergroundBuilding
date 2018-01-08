@@ -39,6 +39,12 @@ namespace World {
             initBackgroundTile = sInitBackgroundTile;
             this.enabled = false;
         }
+
+        public void OnDestroy() {
+            WorldTiles = new Dictionary<CoordinatePair, WorldTile>();
+            WorldStructureTiles = new Dictionary<CoordinatePair, StructureTile>();
+            WorldBackgroundTiles = new Dictionary<CoordinatePair, WorldBackgroundTile>();
+        }
     }
 
 

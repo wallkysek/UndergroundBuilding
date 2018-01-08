@@ -122,6 +122,8 @@ GameObject:
   - component: {fileID: 4023544755668688}
   - component: {fileID: 33148375262016978}
   - component: {fileID: 23667470821883140}
+  - component: {fileID: 114035023203331790}
+  - component: {fileID: 65892706705835876}
   m_Layer: 0
   m_Name: Chest
   m_TagString: Untagged
@@ -170,7 +172,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1743081972760560}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 1.6883199, y: -2.8670325, z: -4.926758}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4861382992355904}
@@ -621,6 +623,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1551278416013606}
   m_Mesh: {fileID: 4300010, guid: d005da96dbc6bee42a2337c1a65e2202, type: 3}
+--- !u!65 &65892706705835876
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1743081972760560}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.31, y: 1.8, z: 1.42}
+  m_Center: {x: 1.11, y: 0.45, z: 0.69}
 --- !u!108 &108436689281574158
 Light:
   m_ObjectHideFlags: 1
@@ -631,15 +645,15 @@ Light:
   serializedVersion: 8
   m_Type: 2
   m_Color: {r: 0.101960786, g: 0.44313726, b: 0.80784315, a: 1}
-  m_Intensity: 6.63
+  m_Intensity: 20
   m_Range: 2.37
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 1
+    m_Strength: 0.31
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.2
@@ -657,3 +671,16 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &114035023203331790
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1743081972760560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5270a21752dc5da4a82d61c0eec4d951, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon: {fileID: 21300000, guid: 3ea7b081c9f2d074cb3ae986d1448643, type: 3}
+  structureName: 

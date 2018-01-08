@@ -6,20 +6,20 @@ using UnityEngine;
 public class ActionButton : Button {
 
 
-    private ClickModeManager ClickModeMan;
+    protected ClickModeManager ClickModeMan;
 
-    private Action ActionToDo;
+    private Actions.Action ActionToDo;
 
     void Start() {
         ClickModeMan = ClickModeManager.GetInstance();
     }
 
-    public void OnClick() {
+    public virtual void OnClick() {
         this.ClickModeMan.Do = ActionToDo.Do;
         this.ClickModeMan.Mode = ClickModeManager.SelectMode.SELECT_TARGET;
     }
 
-    public void SetActionToDo(Action toDo) {
+    public virtual void SetActionToDo(Actions.Action toDo) {
         this.ActionToDo = toDo;
     }
 }

@@ -19,8 +19,8 @@ public class TileParent : MonoBehaviour, IF_Selectable {
         this.parent = parent;
     }
 
-    public List<Action> GetActionList() {
-        return new List<Action>();
+    public List<Actions.Action> GetActionList() {
+        return new List<Actions.Action>();
     }
 
     public IF_Selectable GetTarget() {

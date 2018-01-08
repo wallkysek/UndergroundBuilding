@@ -5,14 +5,22 @@ using UnityEngine.UI;
 
 public class ClickModeManager : MonoBehaviour {
 
-    public enum SelectMode { SELECT_ACTOR, SELECT_TARGET};
+    public enum SelectMode { SELECT_ACTOR, SELECT_TARGET, SELECT_NOT};
 
     
     public SelectMode Mode = SelectMode.SELECT_ACTOR;
     [SerializeField]
     private GameObject ParentContent;
     [SerializeField]
+    private GameObject MenuParentContent;
+    [SerializeField]
     private Button ButtonToInstantiate;
+    [SerializeField]
+    private GameObject MenuParentBackground;
+    [SerializeField]
+    private DwarfPanel dwarfPanel;
+
+    [SerializeField] private MessagePanel msgPanel;
 
     private IF_Actor SelectedActor = null;
     private IF_Target SelectedTarget = null;
@@ -37,10 +45,14 @@ public class ClickModeManager : MonoBehaviour {
     }
 
     public void ClickedOnGO(GameObject GO) {
+            
+        Debug.Log(GO.name);
         switch (Mode) {
             case SelectMode.SELECT_ACTOR:
                 SelectedActor = GO.GetComponent<IF_Actor>();
                 if (this.SelectedActor == null) {
+                    dwarfPanel.HidePanel();
+                    this.ClearActionBars();
                     Debug.Log("Not a valid actor");
                     return;
                 }
@@ -53,11 +65,20 @@ public class ClickModeManager : MonoBehaviour {
                     return;
                 }
                 if (this.SelectedActor == null) {
+                    dwarfPanel.HidePanel();
+                    this.ClearActionBars();
                     Debug.Log("Not a valid actor");
                     Mode = SelectMode.SELECT_ACTOR;
                     return;
                 }
-                Do(SelectedActor, SelectedTarget);
+                try
+                {
+                    Do(SelectedActor, SelectedTarget);
+                }
+                catch (ActionException Aex)
+                {
+                    msgPanel.DisplayMessage(Aex.Message);
+                }
                 Mode = SelectMode.SELECT_ACTOR;
                 break;
         }
@@ -65,15 +86,39 @@ public class ClickModeManager : MonoBehaviour {
     
 
     private void SetupActionList() {
-        List<Action> actionList = SelectedActor.GetActions();
-
+        List<Actions.Action> actionList = SelectedActor.GetActions();
         foreach (Transform child in ParentContent.transform) {
             GameObject.Destroy(child.gameObject);
         }
 
-        foreach (Action act in actionList) {
+        foreach (Actions.Action act in actionList) {
             act.GetButton().transform.SetParent(ParentContent.transform);
         }
-        
+    }
+
+    public void SetupActionMenu(List<Actions.Action> Actions) {
+        if (MenuParentBackground.activeSelf == false) {
+            MenuParentBackground.SetActive(true);
+            foreach (Transform child in MenuParentContent.transform) {
+                GameObject.Destroy(child.gameObject);
+            }
+
+            foreach (Actions.Action act in Actions) {
+                act.GetButton().transform.SetParent(MenuParentContent.transform);
+            }
+        }
+        else {
+            MenuParentBackground.SetActive(false);
+        }
+    }
+
+    private void ClearActionBars() {
+        MenuParentBackground.SetActive(false);
+        foreach (Transform child in MenuParentContent.transform) {
+            GameObject.Destroy(child.gameObject);
+        }
+        foreach (Transform child in ParentContent.transform) {
+            GameObject.Destroy(child.gameObject);
+        }
     }
 }

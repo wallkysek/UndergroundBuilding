@@ -4,7 +4,8 @@ using UnityEngine;
 
 public abstract class Unit : MonoBehaviour {
     [SerializeField]
-    protected List<Action> Actions = new List<Action>();
+    protected List<Actions.Action> Actions = new List<Actions.Action>();
+    [SerializeField]
 
     void Start() {
         this.enabled = false;    

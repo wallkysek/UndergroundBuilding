@@ -36,6 +36,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4054382075776058}
+  - component: {fileID: 114132673577894588}
   m_Layer: 0
   m_Name: MovementTriggers
   m_TagString: Untagged
@@ -88,6 +89,8 @@ GameObject:
   - component: {fileID: 20470046399236426}
   - component: {fileID: 114087305423873906}
   - component: {fileID: 114500560058170226}
+  - component: {fileID: 114067108123234432}
+  - component: {fileID: 81185722407833786}
   m_Layer: 0
   m_Name: PlayerCam_Main
   m_TagString: MainCamera
@@ -203,8 +206,8 @@ Camera:
   m_GameObject: {fileID: 1755722968186294}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.43106616, g: 0.6037071, b: 0.875, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -330,6 +333,28 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!81 &81185722407833786
+AudioListener:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1755722968186294}
+  m_Enabled: 1
+--- !u!114 &114067108123234432
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1755722968186294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -768656878, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EventMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_MaxRayIntersections: 0
 --- !u!114 &114076200313246710
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -343,6 +368,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TrigPos: 3
   TrigSize: 1
+  cmc: {fileID: 114132673577894588}
 --- !u!114 &114087305423873906
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -355,10 +381,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CameraSpeed: 5
-  leftPadding: 0
-  rightPadding: 0
-  topPadding: 0
-  bottomPadding: 0
+  leftPadding: 10
+  rightPadding: 10
+  topPadding: 10
+  bottomPadding: 10
+--- !u!114 &114132673577894588
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1129972745410852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b95a2c7c1fab4b41bafad9e828ab99d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mouseIn: 0
 --- !u!114 &114180837368937354
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -372,6 +410,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TrigPos: 2
   TrigSize: 1
+  cmc: {fileID: 114132673577894588}
 --- !u!114 &114348814044864194
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -385,6 +424,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TrigPos: 0
   TrigSize: 1
+  cmc: {fileID: 114132673577894588}
 --- !u!114 &114500560058170226
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -396,8 +436,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc31dd6e19e18fa438d84be5fef0097f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Min: -1
-  Max: -5
+  Min: -5
+  Max: -1
   Speed: 1
 --- !u!114 &114522623364045676
 MonoBehaviour:
@@ -412,3 +452,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TrigPos: 1
   TrigSize: 1
+  cmc: {fileID: 114132673577894588}

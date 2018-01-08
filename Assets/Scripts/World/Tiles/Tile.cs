@@ -11,6 +11,12 @@ namespace World {
             private Vector3 position = new Vector3(0, 0, 0);
             public bool isActive = false;
             private bool isDestroyed = false;
+
+            public bool IsDestroyed
+            {
+                get { return isDestroyed; }
+            }
+
             private bool isDestructible = true;
 
             private CoordinatePair Coordinates;
@@ -33,6 +39,7 @@ namespace World {
             public void DestroyTile() {
                 if (!isDestructible)
                     return;
+                this.isDestroyed = true;
                 GameObject.Destroy(this.gameObject);
 
             }

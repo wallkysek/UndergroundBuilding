@@ -53,3 +53,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Harvest
   Button: {fileID: 114926752307669152, guid: 00b2dca6d140bc74ea84a653c5745601, type: 2}
+  icon: {fileID: 21300000, guid: 01c029b970f386447af02934068d393a, type: 3}
